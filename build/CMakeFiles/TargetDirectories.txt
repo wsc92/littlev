@@ -1,4 +1,0 @@
-/home/cogent/dev/chronos/build/CMakeFiles/ChronosEngine.dir
-/home/cogent/dev/chronos/build/CMakeFiles/Shaders.dir
-/home/cogent/dev/chronos/build/CMakeFiles/edit_cache.dir
-/home/cogent/dev/chronos/build/CMakeFiles/rebuild_cache.dir
