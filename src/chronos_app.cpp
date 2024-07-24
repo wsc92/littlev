@@ -88,8 +88,8 @@ namespace Chronos {
         pipelineConfig.pipelineLayout = pipelineLayout;
         chronosPipeline = std::make_unique<ChronosPipeline>(
                 chronosDevice,
-                "/home/cogent/dev/chronos/src/shaders/simple_shader.vert.spv",
-                "/home/cogent/dev/chronos/src/shaders/simple_shader.frag.spv",
+                "/home/cogent/dev/vengine/src/shaders/simple_shader.vert.spv",
+                "/home/cogent/dev/vengine/src/shaders/simple_shader.frag.spv",
                 pipelineConfig);
     }
 
