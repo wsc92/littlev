@@ -1,14 +1,15 @@
 #pragma once
 
 #include "chronos_device.hpp"
+#include "chronos_game_object.hpp"
 #include "chronos_pipeline.hpp"
-#include "chronos_swap_chain.hpp"
 #include "chronos_window.hpp"
-#include "chronos_model.hpp"
+#include "chronos_renderer.hpp"
 
 //std
 #include <memory>
 #include <vector>
+#include <vulkan/vulkan_core.h>
 
 namespace Chronos {
     class ChronosApp {
@@ -25,23 +26,21 @@ namespace Chronos {
 
         void run();
     private:
-        void loadModels();
+        void loadGameObjects();
         void createPipelineLayout();
         void createPipeline();
-        void createCommandBuffers();
-        void freeCommandBuffers();
-        void drawFrame();
-        void recreateSwapChain();
-        void recordCommandBuffer(int imageIndex);
+        void renderGameObjects(VkCommandBuffer commandBuffer);
 
     private:
         ChronosWindow chronosWindow{WIDTH, HEIGHT, "HELLO VULKAN!"};
         ChronosDevice chronosDevice{chronosWindow};
+        ChronosRenderer chronosRenderer{chronosWindow, chronosDevice};
+
         std::unique_ptr<ChronosSwapChain> chronosSwapChain;
         std::unique_ptr<ChronosPipeline> chronosPipeline;
         VkPipelineLayout pipelineLayout;
         std::vector<VkCommandBuffer> commandBuffers;
-        std::unique_ptr<ChronosModel> chronosModel;
+        std::vector<ChronosGameObject> gameObjects;
 
     };
 }
